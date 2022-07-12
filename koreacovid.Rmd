@@ -91,4 +91,4 @@ The fisher test tells us that the men were 2.3 times as likely to die than the f
 
 ## Conclusions
 
-
+The results from the barchart showed 65% of those that died being male with only 35% being female. The numerical results showed that 3% of males died and 1.4% of females died. The fisher and p-value text told us men were 2.3 times as likely to die with the chances of seeing these results with no difference in 0.0009. These results show that death is not independent of sex.
