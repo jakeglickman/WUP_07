@@ -30,7 +30,9 @@ state of a patient must be died or alive - we adjust that as well
   
 # Question 1 - Is dying independent of sex
 
+$H_0$ There is no correlation between sex and dying.
 
+$H_A$ There is a correlation between sex and dying.
 
 
 Table of patients:
@@ -79,8 +81,14 @@ The results from the bottom table shows 1.4% of females died, while 3% of males 
 
 ## Inferential results 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
-
+The fisher test tells us that the men were 2.3 times as likely to die than the females in this study. The p-value reveals that the chances of getting this result if there was no difference is 0.0009.
 
 ## Conclusions
+
 
