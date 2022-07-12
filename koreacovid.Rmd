@@ -15,6 +15,12 @@ require(tigerstats)
 require(lubridate)
 kRdata <- read.csv(file = 'kRdata.csv')
 ```
+
+```{r eval=FALSE}
+kRdata <- kRdata %>%
+mutate(across(where(is.character), as.factor))
+```
+
 ### Data is from the Patient_Info dataset from South Korea 1 Jan to 1 May 
 ### This is contained in a downloadable zip file from kaggle
 
@@ -36,18 +42,34 @@ with(kRdata, table(Sex, result))
 
 ```
 
+
+
 ## We create two bar charts - one based on frequency and the other on percent, use ggplot commands to do this
 
-`
-
   
+```{r}
+dd2 <- kRdata %>% group_by(result,Sex) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
 
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=result,y=count,fill=Sex))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=result,y=prcnt*100,fill=Sex)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
 
 
+The ggplot barchart shows that there were more females than males observed. There were more males than died then females. About 65% those that died were male and there were less males observed in the study.
 
   
 ## Numerical results
+
+
+
 
 
 ## Inferential results 
