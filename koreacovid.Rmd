@@ -69,8 +69,13 @@ The ggplot barchart shows that there were more females than males observed. Ther
 ## Numerical results
 
 
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
 
-
+The results from the bottom table shows 1.4% of females died, while 3% of males died. Double the amount of males died than females.
 
 ## Inferential results 
 
